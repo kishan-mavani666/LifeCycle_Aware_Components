@@ -1,21 +1,26 @@
 package com.downloader.lifecycle_aware_demo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.downloader.lifecycle_aware_demo.observer.MainActivityObserver
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        lifecycle.addObserver(Observer())
-
-        Log.d("Main","Activity-on create")
+        lifecycle.addObserver(MainActivityObserver())
+        Log.e("ABCDFERGTYHJ", "MainActivity onCreate")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("Main","Activity_on pause")
+        Log.e("ABCDFERGTYHJ", "MainActivity onPause")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.e("ABCDFERGTYHJ", "MainActivity onResume")
     }
 }
